@@ -541,12 +541,12 @@
 
 <header>
   <div class="header-line"></div>
-  <h1>Your Name</h1>
-  <p class="subtitle">Researcher · Developer · Thinker</p>
+  <h1>Alan Kyungwhan An</h1>
+  <p class="subtitle">Ph.D. · Postdoctoral Researcher · Biomedical AI</p>
   <nav>
-    <button class="active" onclick="switchTab('cv', this)">CV</button>
-    <button onclick="switchTab('blog', this)">Ideas & Blog</button>
-    <button onclick="switchTab('write', this)">+ New Post</button>
+    <button class="active" data-tab="cv">CV</button>
+    <button data-tab="blog">Ideas & Blog</button>
+    <button data-tab="write">+ New Post</button>
   </nav>
 </header>
 
@@ -559,44 +559,84 @@
       <!-- Sidebar -->
       <div class="cv-sidebar">
         <div class="cv-name-block">
-          <div class="avatar">YN</div>
-          <div class="contact-item">✉ <a href="mailto:you@email.com">you@email.com</a></div>
-          <div class="contact-item">⌂ Seoul, Korea</div>
-          <div class="contact-item">⌥ <a href="https://github.com/yourusername">github.com/you</a></div>
+          <div class="avatar">AKA</div>
+          <div class="contact-item">✉ <a href="mailto:micolak0115@gmail.com">micolak0115@gmail.com</a></div>
+          <div class="contact-item">⌂ Pohang, Korea</div>
+          <div class="contact-item">⌥ <a href="https://github.com/micolak0115" target="_blank">github.com/micolak0115</a></div>
+          <div class="contact-item">🔬 <a href="https://orcid.org/0000-0001-9595-5130" target="_blank">ORCID</a></div>
+          <div class="contact-item">📖 <a href="https://scholar.google.com/citations?user=WOZjKH4AAAAJ" target="_blank">Google Scholar</a></div>
         </div>
 
         <div class="cv-section">
           <h2>Skills</h2>
           <span class="skill-tag">Python</span>
-          <span class="skill-tag">Django</span>
-          <span class="skill-tag">JavaScript</span>
-          <span class="skill-tag">React</span>
-          <span class="skill-tag">SQL</span>
-          <span class="skill-tag">Git</span>
-          <span class="skill-tag">Docker</span>
+          <span class="skill-tag">R</span>
+          <span class="skill-tag">Multi-omics</span>
+          <span class="skill-tag">Transcriptomics</span>
+          <span class="skill-tag">Epigenomics</span>
+          <span class="skill-tag">AI workflows</span>
         </div>
 
         <div class="cv-section">
           <h2>Education</h2>
-          <div style="font-size:0.85rem; font-weight:500; margin-bottom:0.2rem;">B.Sc. Computer Science</div>
-          <div style="font-size:0.78rem; color:var(--muted);">Your University<br>2018 – 2022</div>
+          <div style="font-size:0.85rem; font-weight:500; margin-bottom:0.2rem;">Ph.D. in Biomedical Engineering</div>
+          <div style="font-size:0.78rem; color:var(--muted);">UNIST<br>2021 – 2026</div>
+          <div style="font-size:0.85rem; font-weight:500; margin:0.8rem 0 0.2rem;">PGCert in Health Science</div>
+          <div style="font-size:0.78rem; color:var(--muted);">University of Auckland<br>2020</div>
+          <div style="font-size:0.85rem; font-weight:500; margin:0.8rem 0 0.2rem;">B.Sc. in Biomedical Sciences</div>
+          <div style="font-size:0.78rem; color:var(--muted);">University of Auckland<br>2017 – 2019</div>
         </div>
 
         <div class="cv-section">
           <h2>Languages</h2>
           <div class="contact-item">🇰🇷 Korean — Native</div>
-          <div class="contact-item">🇬🇧 English — Fluent</div>
+          <div class="contact-item">🇬🇧 English — Native</div>
         </div>
       </div>
 
       <!-- Main Content -->
       <div class="cv-content">
+
         <div class="cv-section">
           <h2>About</h2>
-          <p style="font-size:0.92rem; line-height:1.75; color:var(--muted);">
-            A curious builder who enjoys turning ideas into working things. 
-            Interested in the intersection of technology, design, and clear thinking.
-            This site is also where I share what I'm learning and exploring.
+          <p style="font-size:0.92rem; line-height:1.85; color:var(--muted);">
+            My name Alan comes from Sir Alan Turing — a figure I regard not merely as the father of artificial intelligence,
+            but as one of the first true bioinformaticians. Beyond the Turing machine and the foundations of computation,
+            Turing was fascinated by the biochemical logic of life itself: his 1952 paper on morphogenesis proposed
+            reaction-diffusion equations that explain how organisms generate spatial patterns — stripes, spots, the
+            architecture of embryos. He was, in the deepest sense, someone who asked how mathematics could speak the
+            language of biology.
+          </p>
+          <p style="font-size:0.92rem; line-height:1.85; color:var(--muted); margin-top:0.9rem;">
+            I want to build machines that have genuinely learned — and can carry forward — biomedical knowledge.
+            Not tools that retrieve facts, but systems that reason about life the way a trained scientist does:
+            integrating evidence across scales, generating hypotheses, and knowing what they do not know.
+          </p>
+          <p style="font-size:0.92rem; line-height:1.85; color:var(--muted); margin-top:0.9rem;">
+            Technology has transformed the surface of human life — how we communicate, move, consume, work.
+            But biology is different. It reaches into the interior of each person: the aging of their cells,
+            the unfolding of disease, the molecular basis of who they are. Across the species, it raises
+            questions no prior technology has been equipped to answer. I think about how biological science
+            should advance in the digital age — not just as an engineering problem, but as a scientific,
+            anthropological, and philosophical one.
+          </p>
+          <p style="font-size:0.92rem; line-height:1.85; color:var(--muted); margin-top:0.9rem;">
+            The Bio+AI revolution, I believe, is not merely a technological transition. It is an ontological one.
+            It has the potential to offer genuine answers — or at least sharper questions — to the problems that
+            existentialism, humanism, and phenomenology have long circled without resolution: What does it mean
+            to exist? What is the boundary of the self? How does consciousness emerge from matter?
+            These are no longer only philosophical questions. They are becoming empirical ones.
+          </p>
+        </div>
+
+        <div class="cv-section">
+          <h2>Research Interests</h2>
+          <p style="font-size:0.92rem; line-height:1.85; color:var(--muted);">
+            Quantitative measurement and mechanistic interpretation of genome-wide regulatory changes underlying
+            human aging, using integrative multi-omic approaches. Particular focus on transcriptomic aging clocks,
+            epigenetic dynamics under infectious stress, and population-scale genomics — with a growing interest
+            in how large-scale biological models can accelerate drug discovery through perturbation-based
+            virtual cell experiments.
           </p>
         </div>
 
@@ -605,31 +645,96 @@
 
           <div class="experience-item">
             <div class="exp-header">
-              <span class="exp-title">Senior Developer</span>
-              <span class="exp-date">2023 – Present</span>
+              <span class="exp-title">Postdoctoral Researcher — Biomedical AI</span>
+              <span class="exp-date">2026 – Present</span>
             </div>
-            <div class="exp-company">Company Name</div>
-            <p class="exp-desc">Brief description of what you did, what you built, what you achieved. Keep it sharp and specific.</p>
+            <div class="exp-company">POSTECH — Pohang University of Science and Technology</div>
+            <p class="exp-desc">Drug discovery through perturbation via virtual cell experiments. Building AI systems that integrate multi-omic biological knowledge to simulate cellular responses and identify therapeutic targets.</p>
           </div>
 
           <div class="experience-item">
             <div class="exp-header">
-              <span class="exp-title">Developer</span>
-              <span class="exp-date">2021 – 2023</span>
+              <span class="exp-title">Ph.D. Researcher</span>
+              <span class="exp-date">2021 – 2026</span>
             </div>
-            <div class="exp-company">Previous Company</div>
-            <p class="exp-desc">Another role, another set of accomplishments. Replace this with your real experience.</p>
+            <div class="exp-company">Korean Genomics Center (KOGIC), UNIST</div>
+            <p class="exp-desc">Developed transcriptomic aging clocks; studied epigenetic dynamics during COVID-19. Contributed to Korea4K and Korea10K population genomics datasets. Supervised by Jong Bhak, Ph.D.</p>
+          </div>
+
+          <div class="experience-item">
+            <div class="exp-header">
+              <span class="exp-title">Research Intern</span>
+              <span class="exp-date">Feb – Aug 2021</span>
+            </div>
+            <div class="exp-company">Korean Genomics Center (KOGIC), UNIST</div>
+          </div>
+
+          <div class="experience-item">
+            <div class="exp-header">
+              <span class="exp-title">Teaching Assistant — Biostatistics for Engineers</span>
+              <span class="exp-date">Aug – Dec 2021</span>
+            </div>
+            <div class="exp-company">UNIST (BME30601)</div>
           </div>
         </div>
 
         <div class="cv-section">
-          <h2>Projects</h2>
+          <h2>Selected Publications</h2>
+
           <div class="experience-item">
             <div class="exp-header">
-              <span class="exp-title">Project Name</span>
+              <span class="exp-title">Dynamic and reversible transcriptomic age shifts induced by COVID-19</span>
+              <span class="exp-date">2025</span>
+            </div>
+            <div class="exp-company"><em>Aging</em> — <strong>First Author</strong></div>
+            <p class="exp-desc">An K, Kwon Y, Bhak J, et al.</p>
+          </div>
+
+          <div class="experience-item">
+            <div class="exp-header">
+              <span class="exp-title">Reactive CpGs and RNA expression in early COVID-19 via cis-eQTM analysis</span>
+              <span class="exp-date">2025</span>
+            </div>
+            <div class="exp-company"><em>Communications Biology</em> — <strong>Co-First Author</strong></div>
+            <p class="exp-desc">Ryu H, An K, Kwon Y, et al.</p>
+          </div>
+
+          <div class="experience-item">
+            <div class="exp-header">
+              <span class="exp-title">Epigenetic modulation of vascular smooth muscle cell phenotype switching in early-onset AMI</span>
+              <span class="exp-date">2025</span>
+            </div>
+            <div class="exp-company"><em>Arteriosclerosis, Thrombosis, and Vascular Biology</em></div>
+            <p class="exp-desc">Jeon Y, Kwon Y, Kim YJ, Jeon S, Ryu H, An K, et al.</p>
+          </div>
+
+          <div class="experience-item">
+            <div class="exp-header">
+              <span class="exp-title">Korea4K: whole genome sequences of 4,157 Koreans with 107 phenotypes</span>
               <span class="exp-date">2024</span>
             </div>
-            <p class="exp-desc">A short description of the project, what it does, and the tech stack used.</p>
+            <div class="exp-company"><em>GigaScience</em></div>
+            <p class="exp-desc">Jeon S, Choi H, Jeon Y, …, An K, et al.</p>
+          </div>
+
+          <div class="experience-item">
+            <div class="exp-header">
+              <span class="exp-title">10,239 whole genomes as Korean population multiomic reference dataset</span>
+              <span class="exp-date">Preprint</span>
+            </div>
+            <div class="exp-company"><em>bioRxiv</em> — <strong>First Author</strong></div>
+            <p class="exp-desc">An K, Jeon S, Kwon Y, et al.</p>
+          </div>
+        </div>
+
+        <div class="cv-section">
+          <h2>Awards</h2>
+          <div class="experience-item">
+            <p class="exp-desc">
+              First in Course: BIOSCI 759, MEDSCI 732, MATHS 102, BIOSCI 203, MEDSCI 203 · University of Auckland<br>
+              PGDip Scholarship · University of Auckland (2020)<br>
+              Distinction in Statistics 101 · University of Auckland (2019)
+            </p>
           </div>
         </div>
       </div>
@@ -652,7 +757,7 @@
 
     <!-- Single post view -->
     <div id="post-view">
-      <button class="back-btn" onclick="closePost()">← Back to all posts</button>
+      <button class="back-btn" id="back-btn">← Back to all posts</button>
       <h1 class="post-full-title" id="post-view-title"></h1>
       <div class="post-meta" id="post-view-meta"></div>
       <div class="post-full-content" id="post-view-content"></div>
@@ -669,12 +774,11 @@
     </div>
 
     <!-- Upload zone -->
-    <div class="upload-box" id="upload-box" onclick="document.getElementById('file-input').click()"
-         ondragover="handleDragOver(event)" ondrop="handleDrop(event)" ondragleave="handleDragLeave(event)">
+    <div class="upload-box" id="upload-box">
       <div class="upload-icon">📄</div>
       <div class="upload-label">Drop a Markdown or text file here</div>
       <div class="upload-hint">or click to browse · .md, .txt supported</div>
-      <input type="file" id="file-input" accept=".md,.txt" style="display:none" onchange="handleFileUpload(event)">
+      <input type="file" id="file-input" accept=".md,.txt" style="display:none">
     </div>
 
     <div style="text-align:center; font-family:'DM Mono',monospace; font-size:0.72rem; color:var(--muted); margin-bottom:1.5rem;">— or write below —</div>
@@ -698,9 +802,9 @@
         <textarea id="new-content" placeholder="Write your idea here. Markdown-style paragraphs work fine.&#10;&#10;Use blank lines to separate paragraphs.&#10;&#10;Start with a heading by typing: ### Section Title"></textarea>
       </div>
       <div>
-        <button class="btn btn-primary" onclick="savePost()">Save & Preview</button>
-        <button class="btn btn-secondary" onclick="clearForm()">Clear</button>
-        <button class="btn btn-secondary" onclick="exportPost()">Export as HTML</button>
+        <button class="btn btn-primary" id="save-btn">Save & Preview</button>
+        <button class="btn btn-secondary" id="clear-btn">Clear</button>
+        <button class="btn btn-secondary" id="export-btn">Export as HTML</button>
       </div>
     </div>
 
@@ -734,7 +838,7 @@ git push origin main</pre>
 </main>
 
 <footer>
-  yourusername.github.io · built with plain HTML · hosted on GitHub Pages
+  micolak0115.github.io · built with plain HTML · hosted on Netlify
 </footer>
 
 <script>
@@ -744,27 +848,27 @@ git push origin main</pre>
   const posts = [
     {
       id: 1,
-      title: "Why I Started Writing in Public",
+      title: "Why I Started Writing About Genomics in Public",
       date: "2026-03-29",
-      summary: "Sharing imperfect ideas is better than hoarding perfect ones that never exist.",
-      tags: ["meta", "writing"],
-      content: `Writing in public is uncomfortable. There's something deeply vulnerable about sharing half-formed thoughts with strangers.\n\nBut I've come to believe that the discomfort is exactly the point.\n\n### The Trap of Private Thinking\n\nFor years I kept ideas in notebooks, in draft folders, in long voice memos I never listened back to. None of them grew. Ideas need contact with other minds to develop — they need friction, questions, alternative angles.\n\n### What Changes When You Publish\n\nWhen you write for an audience, even a hypothetical one, you're forced to make your reasoning legible. You find the gaps. You discover which parts you actually understand versus which parts you've been papering over.\n\n> "Writing is thinking. To write well is to think clearly. That's why it's so hard." — David McCullough\n\nStart messy. Publish anyway. Update as you learn more.`
+      summary: "Sharing half-formed ideas about aging clocks and multi-omics is better than keeping them locked in a notebook.",
+      tags: ["meta", "writing", "science"],
+      content: `Writing about research in public is uncomfortable. There's something vulnerable about sharing ideas before they're fully formed — before the peer review, before the figures are polished.\n\nBut I've come to believe the discomfort is exactly the point.\n\n### The Trap of Private Thinking\n\nFor years I kept ideas in lab notebooks, in draft folders, in half-written methods sections no one ever read. None of them grew. Ideas about aging clocks, about epigenetic dynamics, about what COVID-19 actually does to the transcriptome — they need contact with other minds to develop properly.\n\n### What Changes When You Publish\n\nWhen you write for an audience, even a hypothetical one, you're forced to make your reasoning legible. You find the gaps. You discover which parts of your model you actually understand versus which parts you've been papering over with jargon.\n\n> "Writing is thinking. To write well is to think clearly. That's why it's so hard."\n\nStart messy. Publish anyway. Update as you learn more.`
     },
     {
       id: 2,
-      title: "On Building Things That Last",
+      title: "Transcriptomic Aging Clocks: What Are We Actually Measuring?",
       date: "2026-03-15",
-      summary: "Durability in software isn't about the stack — it's about the decisions you defer.",
-      tags: ["engineering", "ideas"],
-      content: `The longest-lived software I've seen isn't the most cleverly architected. It's the most boring.\n\n### Defer Decisions\n\nThe best engineering choice is often to not make a choice yet. Premature optimization isn't just about performance — it's about locking in assumptions before you have information.\n\n### Write for the Next Person\n\nThat next person is often you, six months later, confused about why you did what you did. Good code is a letter to your future self.\n\n### Durability Through Simplicity\n\nA system that a single person can hold in their head is more durable than a sophisticated one that requires a team to maintain. Complexity is debt.`
+      summary: "Age clocks built on gene expression are powerful tools — but it's worth being precise about what 'biological age' means.",
+      tags: ["aging", "transcriptomics", "methodology"],
+      content: `Transcriptomic aging clocks have become a popular tool in geroscience. You train a model on gene expression data with known chronological ages, and the model learns to predict age from RNA patterns. But what exactly are we measuring?\n\n### Chronological vs Biological Age\n\nThe clock doesn't measure time — it measures the state of the transcriptome relative to a population distribution. When we say someone has a "biological age" of 55 versus a chronological age of 45, we mean their gene expression pattern resembles someone 10 years older on average.\n\n### The COVID-19 Case\n\nWhat made our work on COVID-19-induced transcriptomic aging interesting was the reversibility. After infection resolved, the "age" signal in the blood largely returned to baseline. This suggests the aging signal captured something about acute stress response — not irreversible damage.\n\n### What We Still Don't Know\n\nThe hardest question: do interventions that lower clock age actually extend healthspan? Or are we measuring an epiphenomenon? The clock is a readout. The biology underneath it is what matters.`
     },
     {
       id: 3,
-      title: "Learning in Public: A Methodology",
-      date: "2026-02-28",
-      summary: "A practical framework for sharing what you're learning without waiting until you're an expert.",
-      tags: ["learning", "methodology", "writing"],
-      content: `You don't need to be an expert to share what you're learning. In fact, not being an expert might be your greatest advantage.\n\n### The Expert's Curse\n\nExperts forget what it felt like not to know. Beginners remember every stumbling block, every confusing moment, every thing that "should have been in the docs."\n\n### The Format That Works\n\nThe simplest structure:\n1. What I was trying to learn\n2. What confused me\n3. What I figured out\n4. What I still don't understand\n\nThat last part is important. Honesty about the edges of your knowledge builds more trust than false confidence.\n\n### Frequency Over Perfection\n\nPublish weekly, even if it's short. Consistency compounds.`
+      title: "Population Genomics at Scale: Lessons from Korea4K",
+      date: "2026-02-10",
+      summary: "Building a reference dataset for 4,157 Korean individuals taught me as much about data infrastructure as it did about genetics.",
+      tags: ["genomics", "population", "Korea4K"],
+      content: `The Korea4K project — whole genome sequences for 4,157 Koreans paired with 107 phenotypes from health check-ups — was one of the most technically demanding things I've worked on.\n\n### The Infrastructure Problem\n\nAt population scale, the bottleneck isn't sequencing anymore. It's data management, quality control pipelines, and making the dataset useful to people who weren't in the room when it was built.\n\n### What Reference Datasets Do\n\nA reference dataset like Korea4K creates leverage. Every downstream study that uses it benefits from the QC work done once. Allele frequencies, linkage disequilibrium patterns, population structure — all of this gets established once and reused.\n\n### The Human Side\n\nBehind every genome is a person who consented to participate. Getting population genomics right means getting the ethics, the consent frameworks, and the data governance right — not just the bioinformatics.`
     }
   ];
 
@@ -782,6 +886,48 @@ git push origin main</pre>
       renderPosts();
     }
   }
+
+  // ══════════════════════════════════════════
+  //  WIRE UP ALL EVENT LISTENERS (fixes the
+  //  "switchTab is not defined" error caused
+  //  by Cloudflare's email-decode script
+  //  blocking inline onclick handlers)
+  // ══════════════════════════════════════════
+  document.addEventListener('DOMContentLoaded', function () {
+
+    // Nav tab buttons
+    document.querySelectorAll('nav button[data-tab]').forEach(btn => {
+      btn.addEventListener('click', function () {
+        switchTab(this.dataset.tab, this);
+      });
+    });
+
+    // Back button
+    const backBtn = document.getElementById('back-btn');
+    if (backBtn) backBtn.addEventListener('click', closePost);
+
+    // Upload box click → file picker
+    const uploadBox = document.getElementById('upload-box');
+    const fileInput = document.getElementById('file-input');
+    if (uploadBox && fileInput) {
+      uploadBox.addEventListener('click', () => fileInput.click());
+      uploadBox.addEventListener('dragover',  handleDragOver);
+      uploadBox.addEventListener('drop',      handleDrop);
+      uploadBox.addEventListener('dragleave', handleDragLeave);
+      fileInput.addEventListener('change',    handleFileUpload);
+    }
+
+    // Form buttons
+    const saveBtn   = document.getElementById('save-btn');
+    const clearBtn  = document.getElementById('clear-btn');
+    const exportBtn = document.getElementById('export-btn');
+    if (saveBtn)   saveBtn.addEventListener('click', savePost);
+    if (clearBtn)  clearBtn.addEventListener('click', clearForm);
+    if (exportBtn) exportBtn.addEventListener('click', exportPost);
+
+    // Init
+    renderPosts();
+  });
 
   // ══════════════════════════════════════════
   //  RENDER POSTS
@@ -893,7 +1039,8 @@ git push origin main</pre>
 
     posts.unshift(newPost);
     clearForm();
-    switchTab('blog', document.querySelectorAll('nav button')[1]);
+    const blogBtn = document.querySelector('nav button[data-tab="blog"]');
+    switchTab('blog', blogBtn);
     renderPosts();
   }
 
@@ -940,8 +1087,6 @@ git push origin main</pre>
     a.click();
   }
 
-  // Init
-  renderPosts();
 </script>
 
 </body>
