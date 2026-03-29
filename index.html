@@ -1,0 +1,948 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Your Name — CV & Ideas</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Mono:wght@300;400;500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #f5f0e8;
+      --ink: #1a1410;
+      --accent: #c84b2f;
+      --muted: #8a7f72;
+      --card: #ede8de;
+      --border: #d4cdc0;
+      --tag-bg: #e2ddd4;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--bg);
+      color: var(--ink);
+      min-height: 100vh;
+    }
+
+    /* ── HEADER ── */
+    header {
+      padding: 3rem 0 0;
+      text-align: center;
+      position: relative;
+    }
+
+    .header-line {
+      width: 60px;
+      height: 3px;
+      background: var(--accent);
+      margin: 0 auto 1.5rem;
+    }
+
+    h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.4rem, 6vw, 4rem);
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      line-height: 1.1;
+    }
+
+    .subtitle {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.78rem;
+      font-weight: 300;
+      color: var(--muted);
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      margin-top: 0.6rem;
+    }
+
+    /* ── NAV TABS ── */
+    nav {
+      display: flex;
+      justify-content: center;
+      gap: 0;
+      margin-top: 2.5rem;
+      border-bottom: 2px solid var(--border);
+    }
+
+    nav button {
+      background: none;
+      border: none;
+      padding: 0.85rem 2.2rem;
+      font-family: 'DM Mono', monospace;
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted);
+      cursor: pointer;
+      position: relative;
+      transition: color 0.2s;
+    }
+
+    nav button::after {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      left: 0; right: 0;
+      height: 2px;
+      background: var(--accent);
+      transform: scaleX(0);
+      transition: transform 0.25s ease;
+    }
+
+    nav button.active {
+      color: var(--ink);
+    }
+
+    nav button.active::after {
+      transform: scaleX(1);
+    }
+
+    nav button:hover { color: var(--ink); }
+
+    /* ── MAIN LAYOUT ── */
+    main {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 3rem 1.5rem 5rem;
+    }
+
+    .tab-panel { display: none; }
+    .tab-panel.active {
+      display: block;
+      animation: fadeUp 0.35s ease;
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(12px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ── CV SECTION ── */
+    .cv-grid {
+      display: grid;
+      grid-template-columns: 200px 1fr;
+      gap: 0;
+    }
+
+    .cv-sidebar {
+      padding-right: 2.5rem;
+      border-right: 1px solid var(--border);
+    }
+
+    .cv-content {
+      padding-left: 2.5rem;
+    }
+
+    .cv-section {
+      margin-bottom: 2.8rem;
+    }
+
+    .cv-section h2 {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.68rem;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 1rem;
+    }
+
+    .cv-name-block {
+      margin-bottom: 2.8rem;
+      padding-bottom: 2.8rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .avatar {
+      width: 72px;
+      height: 72px;
+      background: var(--ink);
+      border-radius: 50%;
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Playfair Display', serif;
+      font-size: 1.6rem;
+      color: var(--bg);
+    }
+
+    .contact-item {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.72rem;
+      color: var(--muted);
+      margin-bottom: 0.4rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .contact-item a {
+      color: var(--muted);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .contact-item a:hover { color: var(--accent); }
+
+    .skill-tag {
+      display: inline-block;
+      background: var(--tag-bg);
+      border: 1px solid var(--border);
+      padding: 3px 10px;
+      border-radius: 2px;
+      font-family: 'DM Mono', monospace;
+      font-size: 0.7rem;
+      margin: 3px 3px 3px 0;
+      color: var(--ink);
+    }
+
+    .experience-item {
+      margin-bottom: 1.8rem;
+      padding-bottom: 1.8rem;
+      border-bottom: 1px solid var(--border);
+    }
+    .experience-item:last-child { border-bottom: none; }
+
+    .exp-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 0.3rem;
+    }
+
+    .exp-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1rem;
+      font-weight: 700;
+    }
+
+    .exp-date {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.68rem;
+      color: var(--muted);
+    }
+
+    .exp-company {
+      font-size: 0.82rem;
+      color: var(--accent);
+      margin-bottom: 0.5rem;
+      font-weight: 500;
+    }
+
+    .exp-desc {
+      font-size: 0.88rem;
+      line-height: 1.7;
+      color: var(--muted);
+    }
+
+    /* ── BLOG SECTION ── */
+    .blog-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 2.5rem;
+      padding-bottom: 1rem;
+      border-bottom: 2px solid var(--ink);
+    }
+
+    .blog-header h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.8rem;
+    }
+
+    .blog-header span {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.7rem;
+      color: var(--muted);
+      letter-spacing: 0.1em;
+    }
+
+    .post-card {
+      display: grid;
+      grid-template-columns: 90px 1fr;
+      gap: 1.5rem;
+      padding: 1.8rem 0;
+      border-bottom: 1px solid var(--border);
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    .post-card:hover { background: var(--card); padding-left: 0.8rem; padding-right: 0.8rem; margin: 0 -0.8rem; border-radius: 4px; }
+
+    .post-date-col {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.68rem;
+      color: var(--muted);
+      padding-top: 0.3rem;
+      line-height: 1.6;
+    }
+
+    .post-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.2rem;
+      font-weight: 700;
+      margin-bottom: 0.4rem;
+      transition: color 0.2s;
+    }
+    .post-card:hover .post-title { color: var(--accent); }
+
+    .post-summary {
+      font-size: 0.86rem;
+      color: var(--muted);
+      line-height: 1.6;
+      margin-bottom: 0.6rem;
+    }
+
+    .post-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+
+    .tag {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.65rem;
+      background: var(--tag-bg);
+      border: 1px solid var(--border);
+      padding: 2px 8px;
+      border-radius: 2px;
+      letter-spacing: 0.06em;
+    }
+
+    /* ── SINGLE POST VIEW ── */
+    #post-view { display: none; }
+    #post-view.active { display: block; animation: fadeUp 0.3s ease; }
+
+    .back-btn {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.72rem;
+      letter-spacing: 0.1em;
+      color: var(--muted);
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 0;
+      margin-bottom: 2rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      transition: color 0.2s;
+    }
+    .back-btn:hover { color: var(--accent); }
+
+    .post-full-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.8rem, 4vw, 2.6rem);
+      line-height: 1.2;
+      margin-bottom: 0.8rem;
+    }
+
+    .post-meta {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.7rem;
+      color: var(--muted);
+      margin-bottom: 2rem;
+      display: flex;
+      gap: 1rem;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .post-full-content {
+      font-size: 1rem;
+      line-height: 1.85;
+      max-width: 640px;
+    }
+
+    .post-full-content p { margin-bottom: 1.2rem; }
+    .post-full-content h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.2rem;
+      margin: 2rem 0 0.8rem;
+    }
+
+    .post-full-content blockquote {
+      border-left: 3px solid var(--accent);
+      padding-left: 1rem;
+      color: var(--muted);
+      font-style: italic;
+      margin: 1.5rem 0;
+    }
+
+    /* ── UPLOAD SECTION ── */
+    .upload-box {
+      border: 2px dashed var(--border);
+      border-radius: 4px;
+      padding: 3rem 2rem;
+      text-align: center;
+      margin-bottom: 2rem;
+      transition: border-color 0.2s, background 0.2s;
+      cursor: pointer;
+    }
+    .upload-box:hover, .upload-box.drag-over {
+      border-color: var(--accent);
+      background: var(--card);
+    }
+
+    .upload-icon {
+      font-size: 2rem;
+      margin-bottom: 0.8rem;
+    }
+
+    .upload-label {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.1rem;
+      margin-bottom: 0.4rem;
+    }
+
+    .upload-hint {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.7rem;
+      color: var(--muted);
+      letter-spacing: 0.08em;
+    }
+
+    .write-form { display: none; }
+    .write-form.active { display: block; animation: fadeUp 0.3s ease; }
+
+    .form-group { margin-bottom: 1.2rem; }
+
+    label {
+      display: block;
+      font-family: 'DM Mono', monospace;
+      font-size: 0.68rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 0.4rem;
+    }
+
+    input, textarea {
+      width: 100%;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 3px;
+      padding: 0.7rem 1rem;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.9rem;
+      color: var(--ink);
+      outline: none;
+      transition: border-color 0.2s;
+    }
+    input:focus, textarea:focus { border-color: var(--accent); }
+    textarea { min-height: 220px; resize: vertical; }
+
+    .btn {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.75rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 0.7rem 1.8rem;
+      border-radius: 3px;
+      cursor: pointer;
+      border: none;
+      transition: all 0.2s;
+    }
+
+    .btn-primary {
+      background: var(--ink);
+      color: var(--bg);
+    }
+    .btn-primary:hover { background: var(--accent); }
+
+    .btn-secondary {
+      background: transparent;
+      color: var(--muted);
+      border: 1px solid var(--border);
+      margin-left: 0.8rem;
+    }
+    .btn-secondary:hover { color: var(--ink); border-color: var(--ink); }
+
+    .github-instructions {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 1.5rem;
+      margin-top: 1.5rem;
+      display: none;
+    }
+    .github-instructions.active { display: block; animation: fadeUp 0.3s ease; }
+
+    .github-instructions h3 {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.72rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 1rem;
+    }
+
+    pre {
+      background: var(--ink);
+      color: var(--bg);
+      padding: 1rem 1.2rem;
+      border-radius: 3px;
+      font-family: 'DM Mono', monospace;
+      font-size: 0.78rem;
+      line-height: 1.6;
+      overflow-x: auto;
+      margin: 0.8rem 0;
+    }
+
+    .step {
+      display: flex;
+      gap: 1rem;
+      margin-bottom: 0.8rem;
+      align-items: flex-start;
+    }
+
+    .step-num {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.65rem;
+      background: var(--accent);
+      color: white;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-top: 0.1rem;
+    }
+
+    .step-text {
+      font-size: 0.85rem;
+      line-height: 1.5;
+      color: var(--muted);
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      text-align: center;
+      padding: 2rem;
+      font-family: 'DM Mono', monospace;
+      font-size: 0.68rem;
+      color: var(--muted);
+      border-top: 1px solid var(--border);
+      letter-spacing: 0.08em;
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 600px) {
+      .cv-grid { grid-template-columns: 1fr; }
+      .cv-sidebar { border-right: none; border-bottom: 1px solid var(--border); padding-right: 0; padding-bottom: 1.5rem; margin-bottom: 1.5rem; }
+      .cv-content { padding-left: 0; }
+      .post-card { grid-template-columns: 1fr; }
+      .post-date-col { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="header-line"></div>
+  <h1>Your Name</h1>
+  <p class="subtitle">Researcher · Developer · Thinker</p>
+  <nav>
+    <button class="active" onclick="switchTab('cv', this)">CV</button>
+    <button onclick="switchTab('blog', this)">Ideas & Blog</button>
+    <button onclick="switchTab('write', this)">+ New Post</button>
+  </nav>
+</header>
+
+<main>
+
+  <!-- ══════════════ CV TAB ══════════════ -->
+  <div id="tab-cv" class="tab-panel active">
+    <div class="cv-grid">
+
+      <!-- Sidebar -->
+      <div class="cv-sidebar">
+        <div class="cv-name-block">
+          <div class="avatar">YN</div>
+          <div class="contact-item">✉ <a href="mailto:you@email.com">you@email.com</a></div>
+          <div class="contact-item">⌂ Seoul, Korea</div>
+          <div class="contact-item">⌥ <a href="https://github.com/yourusername">github.com/you</a></div>
+        </div>
+
+        <div class="cv-section">
+          <h2>Skills</h2>
+          <span class="skill-tag">Python</span>
+          <span class="skill-tag">Django</span>
+          <span class="skill-tag">JavaScript</span>
+          <span class="skill-tag">React</span>
+          <span class="skill-tag">SQL</span>
+          <span class="skill-tag">Git</span>
+          <span class="skill-tag">Docker</span>
+        </div>
+
+        <div class="cv-section">
+          <h2>Education</h2>
+          <div style="font-size:0.85rem; font-weight:500; margin-bottom:0.2rem;">B.Sc. Computer Science</div>
+          <div style="font-size:0.78rem; color:var(--muted);">Your University<br>2018 – 2022</div>
+        </div>
+
+        <div class="cv-section">
+          <h2>Languages</h2>
+          <div class="contact-item">🇰🇷 Korean — Native</div>
+          <div class="contact-item">🇬🇧 English — Fluent</div>
+        </div>
+      </div>
+
+      <!-- Main Content -->
+      <div class="cv-content">
+        <div class="cv-section">
+          <h2>About</h2>
+          <p style="font-size:0.92rem; line-height:1.75; color:var(--muted);">
+            A curious builder who enjoys turning ideas into working things. 
+            Interested in the intersection of technology, design, and clear thinking.
+            This site is also where I share what I'm learning and exploring.
+          </p>
+        </div>
+
+        <div class="cv-section">
+          <h2>Experience</h2>
+
+          <div class="experience-item">
+            <div class="exp-header">
+              <span class="exp-title">Senior Developer</span>
+              <span class="exp-date">2023 – Present</span>
+            </div>
+            <div class="exp-company">Company Name</div>
+            <p class="exp-desc">Brief description of what you did, what you built, what you achieved. Keep it sharp and specific.</p>
+          </div>
+
+          <div class="experience-item">
+            <div class="exp-header">
+              <span class="exp-title">Developer</span>
+              <span class="exp-date">2021 – 2023</span>
+            </div>
+            <div class="exp-company">Previous Company</div>
+            <p class="exp-desc">Another role, another set of accomplishments. Replace this with your real experience.</p>
+          </div>
+        </div>
+
+        <div class="cv-section">
+          <h2>Projects</h2>
+          <div class="experience-item">
+            <div class="exp-header">
+              <span class="exp-title">Project Name</span>
+              <span class="exp-date">2024</span>
+            </div>
+            <p class="exp-desc">A short description of the project, what it does, and the tech stack used.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════ BLOG TAB ══════════════ -->
+  <div id="tab-blog" class="tab-panel">
+
+    <!-- Post list -->
+    <div id="post-list">
+      <div class="blog-header">
+        <h2>Ideas & Writing</h2>
+        <span id="post-count">— posts</span>
+      </div>
+      <div id="posts-container">
+        <!-- Posts rendered by JS -->
+      </div>
+    </div>
+
+    <!-- Single post view -->
+    <div id="post-view">
+      <button class="back-btn" onclick="closePost()">← Back to all posts</button>
+      <h1 class="post-full-title" id="post-view-title"></h1>
+      <div class="post-meta" id="post-view-meta"></div>
+      <div class="post-full-content" id="post-view-content"></div>
+    </div>
+
+  </div>
+
+  <!-- ══════════════ WRITE TAB ══════════════ -->
+  <div id="tab-write" class="tab-panel">
+
+    <div class="blog-header">
+      <h2>Share an Idea</h2>
+      <span>Upload a .md or .txt file — or write directly</span>
+    </div>
+
+    <!-- Upload zone -->
+    <div class="upload-box" id="upload-box" onclick="document.getElementById('file-input').click()"
+         ondragover="handleDragOver(event)" ondrop="handleDrop(event)" ondragleave="handleDragLeave(event)">
+      <div class="upload-icon">📄</div>
+      <div class="upload-label">Drop a Markdown or text file here</div>
+      <div class="upload-hint">or click to browse · .md, .txt supported</div>
+      <input type="file" id="file-input" accept=".md,.txt" style="display:none" onchange="handleFileUpload(event)">
+    </div>
+
+    <div style="text-align:center; font-family:'DM Mono',monospace; font-size:0.72rem; color:var(--muted); margin-bottom:1.5rem;">— or write below —</div>
+
+    <!-- Write form -->
+    <div class="write-form active" id="write-form">
+      <div class="form-group">
+        <label>Title</label>
+        <input type="text" id="new-title" placeholder="What's the idea?">
+      </div>
+      <div class="form-group">
+        <label>Summary (one line)</label>
+        <input type="text" id="new-summary" placeholder="A single sentence overview">
+      </div>
+      <div class="form-group">
+        <label>Tags (space-separated)</label>
+        <input type="text" id="new-tags" placeholder="ideas research tech">
+      </div>
+      <div class="form-group">
+        <label>Content</label>
+        <textarea id="new-content" placeholder="Write your idea here. Markdown-style paragraphs work fine.&#10;&#10;Use blank lines to separate paragraphs.&#10;&#10;Start with a heading by typing: ### Section Title"></textarea>
+      </div>
+      <div>
+        <button class="btn btn-primary" onclick="savePost()">Save & Preview</button>
+        <button class="btn btn-secondary" onclick="clearForm()">Clear</button>
+        <button class="btn btn-secondary" onclick="exportPost()">Export as HTML</button>
+      </div>
+    </div>
+
+    <!-- GitHub instructions -->
+    <div class="github-instructions active" id="github-instructions" style="margin-top:2rem;">
+      <h3>📁 How to publish to GitHub</h3>
+      <div class="step">
+        <div class="step-num">1</div>
+        <div class="step-text">Write your post above, click <strong>Export as HTML</strong>, and save the file into your repo at:</div>
+      </div>
+      <pre>blog/posts/YYYY-MM-DD-your-title.html</pre>
+      <div class="step">
+        <div class="step-num">2</div>
+        <div class="step-text">Open <code>blog/index.html</code> and add a new entry to the <code>posts</code> array in the JavaScript block.</div>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <div class="step-text">Commit and push:</div>
+      </div>
+      <pre>git add .
+git commit -m "New post: Your Title"
+git push origin main</pre>
+      <div class="step">
+        <div class="step-num">4</div>
+        <div class="step-text">GitHub Pages auto-deploys in ~60 seconds. Your post is live at <strong>yourusername.github.io</strong> ✓</div>
+      </div>
+    </div>
+
+  </div>
+
+</main>
+
+<footer>
+  yourusername.github.io · built with plain HTML · hosted on GitHub Pages
+</footer>
+
+<script>
+  // ══════════════════════════════════════════
+  //  POSTS DATA — add your posts here!
+  // ══════════════════════════════════════════
+  const posts = [
+    {
+      id: 1,
+      title: "Why I Started Writing in Public",
+      date: "2026-03-29",
+      summary: "Sharing imperfect ideas is better than hoarding perfect ones that never exist.",
+      tags: ["meta", "writing"],
+      content: `Writing in public is uncomfortable. There's something deeply vulnerable about sharing half-formed thoughts with strangers.\n\nBut I've come to believe that the discomfort is exactly the point.\n\n### The Trap of Private Thinking\n\nFor years I kept ideas in notebooks, in draft folders, in long voice memos I never listened back to. None of them grew. Ideas need contact with other minds to develop — they need friction, questions, alternative angles.\n\n### What Changes When You Publish\n\nWhen you write for an audience, even a hypothetical one, you're forced to make your reasoning legible. You find the gaps. You discover which parts you actually understand versus which parts you've been papering over.\n\n> "Writing is thinking. To write well is to think clearly. That's why it's so hard." — David McCullough\n\nStart messy. Publish anyway. Update as you learn more.`
+    },
+    {
+      id: 2,
+      title: "On Building Things That Last",
+      date: "2026-03-15",
+      summary: "Durability in software isn't about the stack — it's about the decisions you defer.",
+      tags: ["engineering", "ideas"],
+      content: `The longest-lived software I've seen isn't the most cleverly architected. It's the most boring.\n\n### Defer Decisions\n\nThe best engineering choice is often to not make a choice yet. Premature optimization isn't just about performance — it's about locking in assumptions before you have information.\n\n### Write for the Next Person\n\nThat next person is often you, six months later, confused about why you did what you did. Good code is a letter to your future self.\n\n### Durability Through Simplicity\n\nA system that a single person can hold in their head is more durable than a sophisticated one that requires a team to maintain. Complexity is debt.`
+    },
+    {
+      id: 3,
+      title: "Learning in Public: A Methodology",
+      date: "2026-02-28",
+      summary: "A practical framework for sharing what you're learning without waiting until you're an expert.",
+      tags: ["learning", "methodology", "writing"],
+      content: `You don't need to be an expert to share what you're learning. In fact, not being an expert might be your greatest advantage.\n\n### The Expert's Curse\n\nExperts forget what it felt like not to know. Beginners remember every stumbling block, every confusing moment, every thing that "should have been in the docs."\n\n### The Format That Works\n\nThe simplest structure:\n1. What I was trying to learn\n2. What confused me\n3. What I figured out\n4. What I still don't understand\n\nThat last part is important. Honesty about the edges of your knowledge builds more trust than false confidence.\n\n### Frequency Over Perfection\n\nPublish weekly, even if it's short. Consistency compounds.`
+    }
+  ];
+
+  // ══════════════════════════════════════════
+  //  TAB SWITCHING
+  // ══════════════════════════════════════════
+  function switchTab(tab, btn) {
+    document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+    document.querySelectorAll('nav button').forEach(b => b.classList.remove('active'));
+    document.getElementById('tab-' + tab).classList.add('active');
+    btn.classList.add('active');
+
+    if (tab === 'blog') {
+      closePost();
+      renderPosts();
+    }
+  }
+
+  // ══════════════════════════════════════════
+  //  RENDER POSTS
+  // ══════════════════════════════════════════
+  function renderPosts() {
+    const container = document.getElementById('posts-container');
+    document.getElementById('post-count').textContent = posts.length + ' posts';
+
+    container.innerHTML = posts.map(post => `
+      <div class="post-card" onclick="openPost(${post.id})">
+        <div class="post-date-col">${formatDate(post.date)}</div>
+        <div>
+          <div class="post-title">${post.title}</div>
+          <div class="post-summary">${post.summary}</div>
+          <div class="post-tags">
+            ${post.tags.map(t => `<span class="tag">${t}</span>`).join('')}
+          </div>
+        </div>
+      </div>
+    `).join('');
+  }
+
+  function formatDate(d) {
+    const date = new Date(d);
+    return date.toLocaleDateString('en-US', { month: 'short', day: 'numeric' }) + '\n' + date.getFullYear();
+  }
+
+  // ══════════════════════════════════════════
+  //  OPEN / CLOSE POST
+  // ══════════════════════════════════════════
+  function openPost(id) {
+    const post = posts.find(p => p.id === id);
+    if (!post) return;
+
+    document.getElementById('post-list').style.display = 'none';
+    const pv = document.getElementById('post-view');
+    pv.classList.add('active');
+
+    document.getElementById('post-view-title').textContent = post.title;
+    document.getElementById('post-view-meta').innerHTML =
+      `<span>${new Date(post.date).toLocaleDateString('en-US', {year:'numeric',month:'long',day:'numeric'})}</span>` +
+      post.tags.map(t => `<span class="tag">${t}</span>`).join('');
+
+    document.getElementById('post-view-content').innerHTML = renderContent(post.content);
+  }
+
+  function closePost() {
+    document.getElementById('post-list').style.display = 'block';
+    document.getElementById('post-view').classList.remove('active');
+  }
+
+  function renderContent(text) {
+    return text
+      .split('\n\n')
+      .map(block => {
+        if (block.startsWith('### ')) return `<h3>${block.slice(4)}</h3>`;
+        if (block.startsWith('> '))   return `<blockquote>${block.slice(2)}</blockquote>`;
+        if (block.match(/^\d+\./)) {
+          const items = block.split('\n').map(l => `<li>${l.replace(/^\d+\.\s*/,'')}</li>`).join('');
+          return `<ol>${items}</ol>`;
+        }
+        return `<p>${block}</p>`;
+      }).join('');
+  }
+
+  // ══════════════════════════════════════════
+  //  FILE UPLOAD
+  // ══════════════════════════════════════════
+  function handleFileUpload(event) {
+    const file = event.target.files[0];
+    if (!file) return;
+    const reader = new FileReader();
+    reader.onload = e => {
+      const text = e.target.result;
+      const titleMatch = text.match(/^#\s+(.+)/m);
+      document.getElementById('new-title').value   = titleMatch ? titleMatch[1] : file.name.replace(/\.[^.]+$/, '');
+      document.getElementById('new-content').value = text.replace(/^#\s+.+\n?/, '').trim();
+      document.getElementById('write-form').classList.add('active');
+    };
+    reader.readAsText(file);
+  }
+
+  function handleDragOver(e)  { e.preventDefault(); document.getElementById('upload-box').classList.add('drag-over'); }
+  function handleDragLeave()  { document.getElementById('upload-box').classList.remove('drag-over'); }
+  function handleDrop(e) {
+    e.preventDefault();
+    document.getElementById('upload-box').classList.remove('drag-over');
+    const file = e.dataTransfer.files[0];
+    if (file) { const dt = new DataTransfer(); dt.items.add(file); document.getElementById('file-input').files = dt.files; handleFileUpload({target: document.getElementById('file-input')}); }
+  }
+
+  // ══════════════════════════════════════════
+  //  SAVE POST (adds to live list)
+  // ══════════════════════════════════════════
+  function savePost() {
+    const title   = document.getElementById('new-title').value.trim();
+    const summary = document.getElementById('new-summary').value.trim();
+    const tags    = document.getElementById('new-tags').value.trim().split(/\s+/).filter(Boolean);
+    const content = document.getElementById('new-content').value.trim();
+    if (!title || !content) { alert('Title and content are required.'); return; }
+
+    const newPost = {
+      id: Date.now(),
+      title, summary: summary || content.substring(0, 120) + '…',
+      tags: tags.length ? tags : ['idea'],
+      date: new Date().toISOString().split('T')[0],
+      content
+    };
+
+    posts.unshift(newPost);
+    clearForm();
+    switchTab('blog', document.querySelectorAll('nav button')[1]);
+    renderPosts();
+  }
+
+  function clearForm() {
+    ['new-title','new-summary','new-tags','new-content'].forEach(id => document.getElementById(id).value = '');
+  }
+
+  // ══════════════════════════════════════════
+  //  EXPORT POST AS HTML FILE
+  // ══════════════════════════════════════════
+  function exportPost() {
+    const title   = document.getElementById('new-title').value.trim() || 'untitled';
+    const content = document.getElementById('new-content').value.trim();
+    const date    = new Date().toISOString().split('T')[0];
+    const slug    = title.toLowerCase().replace(/[^a-z0-9]+/g, '-');
+
+    const html = `<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>${title}</title>
+  <link rel="stylesheet" href="../../style.css">
+</head>
+<body>
+  <nav>
+    <a href="../../index.html">CV</a>
+    <a href="../index.html">Blog</a>
+  </nav>
+  <article>
+    <h1>${title}</h1>
+    <time>${date}</time>
+    <div class="post-full-content">
+      ${content.split('\n\n').map(b => `<p>${b}</p>`).join('\n      ')}
+    </div>
+    <a href="../index.html">← Back to Blog</a>
+  </article>
+</body>
+</html>`;
+
+    const blob = new Blob([html], { type: 'text/html' });
+    const a = document.createElement('a');
+    a.href = URL.createObjectURL(blob);
+    a.download = `${date}-${slug}.html`;
+    a.click();
+  }
+
+  // Init
+  renderPosts();
+</script>
+
+</body>
+</html>
